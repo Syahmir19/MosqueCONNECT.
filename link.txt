@@ -1,0 +1,5 @@
+http://localhost/MasjidAr-Rahman/index.html
+
+admin -> http://localhost/MasjidAr-Rahman/admin/home.html
+
+member -> http://localhost/MasjidAr-Rahman/member/home.html
