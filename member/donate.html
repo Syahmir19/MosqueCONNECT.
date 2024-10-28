@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Donate - Masjid Ar-Rahman</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Your CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .donation-container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 100px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .bank-selection,
+        .credit-card-section {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .selected-option {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .custom-options {
+            display: none;
+            position: absolute;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            z-index: 1000;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .custom-options li {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-options li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .custom-options.show {
+            display: block;
+        }
+
+        .bank-logo {
+            width: 50px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .credit-card-section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div>
+        <div class="container">
+            <nav class="navbar navbar-light navbar-expand-lg py-3">
+                <a href="home.html" class="navbar-brand">
+                    <h1 class="mb-0">Mosque<span class="text-primary">CONNECT</span></h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                        <a href="home.html" class="nav-item nav-link">Home</a>
+                        <a href="prayertimes.html" class="nav-item nav-link">Prayer Times</a>
+                        <a href="event.html" class="nav-item nav-link">Events</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Booking</a>
+                            <div class="dropdown-menu m-0 rounded-0">
+                                <a href="reserve.php" class="dropdown-item">Facilities</a>
+                                <a href="booking.php" class="dropdown-item">Events</a>
+								<a href="historybooking.php" class="dropdown-item">History Booking</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="donate.html" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Donate</a>
+                            <div class="dropdown-menu m-0 rounded-0">
+                                <a href="donate.html" class="dropdown-item">Donate</a>
+                                <a href="historydonate.php" class="dropdown-item">History Donate</a>
+                            </div>
+                        </div>
+                        <a href="profile.html" class="nav-item nav-link">Profile</a>
+                    </div>
+                    <a href="logout.php" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Logout</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid hero-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="hero-header-inner animated zoomIn">
+                        <h1 class="display-1 text-dark">Donate Now!</h1>
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-dark" aria-current="page">Donate</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+    <div class="donation-container">
+        <h2 class="text-center mb-4">DONATE</h2>
+        <h6 class="text-center mb=4">FOR OUR COMMUNITY PROGRAM</h6>
+        <form action="process_donation.php" method="POST">
+            <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+</div>
+<div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+</div>
+<div class="mb-3">
+    <label for="amount" class="form-label">Donation Amount (RM)</label>
+    <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter donation amount" required>
+</div>
+<div class="mb-3">
+    <label for="method" class="form-label">Payment Method</label>
+    <select class="form-select" id="method" name="method" required>
+        <option selected disabled>Choose...</option>
+        <option value="bank-transfer">Bank Transfer</option>
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">QR Code</option>
+    </select>
+</div>
+
+
+            <!-- Bank selection with images -->
+            <div class="mb-3 bank-selection" id="bank-selection">
+                <label for="bank" class="form-label">Select Bank</label>
+                <div class="custom-dropdown">
+                    <div class="selected-option" id="selected-option">Choose bank...</div>
+                    <ul class="custom-options">
+                        <li data-value="Maybank" data-logo="img/maybank-logo.png"><img src="img/maybank-logo.png" alt="Maybank" class="bank-logo"> Maybank</li>
+                        <li data-value="CIMB" data-logo="img/cimb-logo.png"><img src="img/cimb-logo.png" alt="CIMB Clicks" class="bank-logo"> CIMB Clicks</li>
+                        <li data-value="RHB" data-logo="img/rhb-logo.png"><img src="img/rhb-logo.png" alt="RHB Bank" class="bank-logo"> RHB Bank</li>
+                        <li data-value="BSN" data-logo="img/bsn-logo.png"><img src="img/bsn-logo.png" alt="Bank Simpanan Nasional" class="bank-logo"> Bank Simpanan Nasional</li>
+                        <li data-value="AffinBank" data-logo="img/affin-logo.png"><img src="img/affin-logo.png" alt="Affin Bank" class="bank-logo"> Affin Bank</li>
+                        <li data-value="PublicBank" data-logo="img/publicbank-logo.png"><img src="img/publicbank-logo.png" alt="Public Bank" class="bank-logo"> Public Bank</li>
+                    </ul>
+                </div>
+                <input type="hidden" id="selected_bank" name="selected_bank" value="">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Donate</button>
+        </form>
+    </div>
+    <!-- Donation Form End -->
+	
+	<!-- Footer Start -->
+    <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-4 footer-inner">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item mt-5">
+                            <h4 class="text-light mb-4">Mosque<span class="text-primary">CONNECT</span></h4>
+                            <p class="mb-4 text-secondary">MosqueCONNECT is a digital platform that provides real-time prayer times, event scheduling, facility reservations, and donation tracking for mosques. It streamlines mosque operations and enhances community engagement through easy-to-use features and modern technology.</p>
+                            <a href="donate.html" class="btn btn-primary py-2 px-4">Donate Now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item mt-5">
+                            <h4 class="text-light mb-4">Our Mosque</h4>
+                            <div class="d-flex flex-column">
+                                <h6 class="text-secondary mb-0">Our Address</h6>
+                                <div class="d-flex align-items-center border-bottom py-4">
+                                    <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i class="fa fa-map-marker-alt text-dark"></i></span>
+                                    <a href="" class="text-body">Jalan Molek 3/19,Taman Molek, Johor Bahru, Johor.</a>
+                                </div>
+                                <h6 class="text-secondary mt-4 mb-0">Our Mobile</h6>
+                                <div class="d-flex align-items-center py-4">
+                                    <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i class="fa fa-phone-alt text-dark"></i></span>
+                                    <a href="" class="text-body">+011 3922 0216</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item mt-5">
+                            <h4 class="text-light mb-4">Explore Link</h4>
+                            <div class="d-flex flex-column align-items-start">
+                                <a class="text-body mb-2" href="home.html"><i class="fa fa-check text-primary me-2"></i>Home</a>
+                                <a class="text-body mb-2" href="prayertimes.html"><i class="fa fa-check text-primary me-2"></i>Prayer Times</a>
+                                <a class="text-body mb-2" href="event.html"><i class="fa fa-check text-primary me-2"></i>Events</a>
+								<a class="text-body mb-2" href="reserve.html"><i class="fa fa-check text-primary me-2"></i>Booking</a>
+                                <a class="text-body mb-2" href="donate.html"><i class="fa fa-check text-primary me-2"></i>Donate</a>
+                                <a class="text-body mb-2" href="profile.html"><i class="fa fa-check text-primary me-2"></i>Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-4">
+                <div class="border-top border-secondary pb-4"></div>
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="home.html">2024 MosqueCONNECT</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a class="border-bottom">MirCoding</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Footer End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Show/hide sections based on payment method
+            $('#method').change(function () {
+                const selectedMethod = $(this).val();
+                if (selectedMethod === 'bank-transfer') {
+                    $('#bank-selection').show();
+                    $('#credit-card-section').hide();
+                } else if (selectedMethod === 'credit-card') {
+                    $('#bank-selection').hide();
+                    $('#credit-card-section').show();
+                } else {
+                    $('#bank-selection, #credit-card-section').hide();
+                }
+            });
+
+            // Handle bank selection dropdown
+            $('.selected-option').click(function () {
+                $('.custom-options').toggleClass('show');
+            });
+
+            $('.custom-options li').on('click', function () {
+                var bankValue = $(this).data('value');
+                var bankLogo = $(this).data('logo');
+                $('#selected-option').text(bankValue);
+                $('#selected-option').prepend('<img src="' + bankLogo + '" class="bank-logo" alt="' + bankValue + '">');
+                $('#selected_bank').val(bankValue); // Set the hidden input value
+                $('.custom-options').removeClass('show');
+            });
+
+            // Hide dropdown if clicked outside
+            $(document).mouseup(function (e) {
+                var container = $(".custom-dropdown");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    $('.custom-options').removeClass('show');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
